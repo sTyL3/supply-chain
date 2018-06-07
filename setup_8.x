@@ -280,7 +280,7 @@ exec_cmd "echo 'deb-src https://deb.nodesource.com/${NODEREPO} ${DISTRO} main' >
 
 print_status 'Running `apt-get update` for you...'
 
-exec_cmd 'apt-get update'
+exec_cmd 'apt-get -o Acquire::https::deb.nodesource.com::Verify-Peer="false" update'
 
 print_status """Run \`${bold}sudo apt-get install -y ${NODEPKG}${normal}\` to install ${NODENAME} and npm
 ## You may also need development tools to build native addons:
